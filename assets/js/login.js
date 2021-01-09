@@ -9,9 +9,9 @@ $(function () {
         $('.reg-box').hide();
         $('.login-box').show();
     });
-
+    
 /**
- * 自定义校验规则 
+ * 自定义校验规则  
  */
     // 从layUI获取form对象
     var form = layui.form;
