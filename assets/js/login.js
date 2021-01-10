@@ -83,7 +83,7 @@ $(function () {
                 // token值用于请求有权限的数据，所以注意保存到本地
                 localStorage.setItem('token', res.token);
                 // 跳转页面
-                location.href = '/index.html'
+                location.href = './index.html'
             }
         });
     })
