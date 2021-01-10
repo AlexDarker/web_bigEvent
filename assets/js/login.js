@@ -64,15 +64,15 @@ $(function () {
         // 阻止默认提交
         e.preventDefault();
         // 获取输入数据
-        var data = {
-            username: $('#form_login [name=username]').val(),
-            password: $('#form_login [name=password]').val()
-        }
+        // var data = {
+        //     username: $('#form_login [name=username]').val(),
+        //     password: $('#form_login [name=password]').val()
+        // }
         // 发起请求
         $.ajax({
             method: 'POST',
             url: '/api/login',
-            data: data ,
+            data: $(this).serialize() ,
             success: function (res) {
                 if (res.status !== 0) {
                     layer.msg(res.message);
@@ -83,7 +83,7 @@ $(function () {
                 // token值用于请求有权限的数据，所以注意保存到本地
                 localStorage.setItem('token', res.token);
                 // 跳转页面
-                // location.href = '../../index.html'
+                location.href = '/index.html'
             }
         });
     })
