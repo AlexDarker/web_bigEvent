@@ -1,6 +1,19 @@
 $(function () {
     // 调用getUserInfo()获取用户的基本信息
     getUserInfo();
+
+    // 退出事件
+    $('#btnLogout').on('click', function () {
+        // 提示用户是否退出后台首页
+        layui.layer.confirm('确定退出?', { icon: 3, title: '提示' }, function (index) {
+            // 1.清空本地存储的token
+            localStorage.removeItem('token');
+            // 2.重新跳转到登录页面
+            location.href = './login.html'
+            // 关闭confirm询问框
+            layui.layer.close(index);
+        });
+    });
 })
 
 // 自定义getUserInfo()函数获取用户信息
@@ -8,10 +21,7 @@ function getUserInfo() {
     $.ajax({
         method: 'GET',
         url: '/my/userinfo',
-        // headers - 请求头配置信息
-        headers: {
-            Authorization: localStorage.getItem('token') || ''
-        },
+        // headers - 请求头配置信息  -- headers优化至baseAPI.js文件
         success: res => {
             // console.log(res);
             if (res.status !== 0) {
@@ -19,7 +29,8 @@ function getUserInfo() {
             }
             // 调取renderAvatar()函数渲染用户头像
             renderAvatar(res.data);
-        }
+        },
+        // // 不论请求成功失败，均会返回complete()回调函数 -- complete()优化至baseAPI.js文件
     })
 }
 

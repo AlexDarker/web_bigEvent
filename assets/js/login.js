@@ -64,10 +64,6 @@ $(function () {
         // 阻止默认提交
         e.preventDefault();
         // 获取输入数据
-        // var data = {
-        //     username: $('#form_login [name=username]').val(),
-        //     password: $('#form_login [name=password]').val()
-        // }
         // 发起请求
         $.ajax({
             method: 'POST',
