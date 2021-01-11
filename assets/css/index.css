@@ -24,6 +24,12 @@ iframe {
 a {
     transition: none !important;
 }
+
+.layui-nav-img {
+    width: 40px;
+    height: 40px;
+}
+
 .userinfo {
     height: 60px;
     line-height: 60px;
