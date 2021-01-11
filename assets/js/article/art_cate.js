@@ -59,7 +59,6 @@ $(function () {
     });
 
     // 通过代理的形式，为修改分类表单绑定 submit 事件
-    var editIndex = null;
     $('body').on('submit', '#form_edit', function (e) {
         e.preventDefault();
         $.ajax({
@@ -73,7 +72,7 @@ $(function () {
                 initArtCateList();
                 layui.layer.msg('更新分类信息成功！')
                 // 提交成功，关闭弹出框
-                layui.layer.close(editIndex);
+                layui.layer.close(indexEdit);
             }
         })
     });
