@@ -8,12 +8,12 @@ $(function () {
         // 定义愿密码和新密码一样
         samePwd: function (value) {
             if (value === $('[name=oldPwd]').val()) {
-                return layui.layer.msg('新旧密码不能一样')
+                return '新旧密码不能一样'
             }
         },
         rePwd: function (value) {
             if (value !== $('[name=newPwd]').val()) {
-                return layui.layer.msg('两次密码不一致')
+                return '两次密码不一致'
             }
         }
     });
