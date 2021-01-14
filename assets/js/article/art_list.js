@@ -50,6 +50,7 @@ $(function () {
                 if (res.status !== 0) {
                     return layui.layer.msg(res.message);
                 }
+                console.log(res);
                 // 使用模版引擎渲染页面数据
                 var htmlStr = template('tpl-table', res);
                 $('tbody').html(htmlStr);
@@ -136,7 +137,7 @@ $(function () {
         layui.layer.confirm('确认删除?', { icon: 3,title:'提示' }, function (index) {
             $.ajax({
                 method: 'GET',
-                url: '/my/article/delete' + id,
+                url: '/my/article/delete/' + id,
                 success: res => {
                     if (res.status !== 0) {
                         return layui.layer.msg('删除失败')
